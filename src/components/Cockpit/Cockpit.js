@@ -1,12 +1,18 @@
 import React from 'react'
-import persons from './Person/Person';
+import classes from './Cockpit.css'
+const cockpit = (props) => {
+    let assigneedclass = ['red', 'bold'].join('  ');
+    let btnClass = '';
+    if (props.showPersons) {
+        btnClass = classes.red;
+    }
+    return (
+        <div className={classes.Cockpit}>
+            <h1>Hi, I'm React app</h1>
+            <p className={assigneedclass}>This is really working?</p>
+            <button className={btnClass} onClick={props.clicked}  > Switch name </button>
+        </div>
+    ) ;
+}
 
-const persons = ( props ) =>  props.persons.map (  (person, index) => {
-    return <Person
-        click={() => props.deletePersonHandler(index)}
-        name={person.name}
-        age={person.age}
-        key={person.id}
-        changed={(event) => props..nameChangedHandler(event, person.id)}
-    />
-} );
+export default cockpit;
